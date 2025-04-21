@@ -1,7 +1,5 @@
 # uav_deconfliction
 This repository contains all the content of UAV Strategic Deconfliction in Shared Airspace
-# UAV Strategic Deconfliction System
-
 # UAV Airspace Deconfliction System
 
 ## Overview
