@@ -1,0 +1,33 @@
+# Test Cases
+
+## Basic Functionality
+
+1. **Add Mission**
+   - Action: Add mission with 2 waypoints
+   - Verify: Mission appears in dashboard
+   - Verify: Visualization shows path
+
+2. **Collision Detection**
+   - Action: Add two missions with overlapping paths
+   - Verify: System detects and reports collision
+
+## Edge Cases
+
+1. **Simultaneous Arrival**
+   - Setup: Two drones arriving at same waypoint at same time
+   - Verify: System flags as collision
+
+2. **Vertical Separation**
+   - Setup: Same XY path but different altitudes
+   - Verify: No collision detected
+
+3. **Single Waypoint**
+   - Setup: Mission with only one waypoint
+   - Verify: Handled gracefully
+
+## Stress Testing
+
+1. **Multiple Missions**
+   - Action: Add 50 missions
+   - Verify: System remains responsive
+   - Verify: Visualization updates
