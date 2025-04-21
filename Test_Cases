@@ -1,0 +1,52 @@
+
+---
+
+### 2. `TEST_CASES.md`
+
+```markdown
+# Test Cases for UAV Deconfliction System
+
+## Core Functionality Tests
+
+### 1. Mission Scheduling Validation
+- **Description**: Verify time input validation
+- **Steps**:
+  1. Enter start time as "2500"
+  2. Enter end time as "0830"
+- **Expected**: System rejects invalid time with clear error message
+
+### 2. Conflict Detection
+- **Description**: Test spatial-temporal conflict detection
+- **Steps**:
+  1. Schedule Drone A from 0800-0830 on path A→B
+  2. Schedule Drone B from 0820-0850 on path B→A
+- **Expected**: System detects conflict near waypoint B around 0825
+
+### 3. Wind Impact Calculation
+- **Description**: Verify wind affects flight duration
+- **Steps**:
+  1. Set wind speed to 10 m/s headwind
+  2. Schedule a 1km mission
+- **Expected**: Flight duration increases by approximately 30%
+
+## Edge Cases
+
+### 1. Simultaneous Arrival
+- **Description**: Two drones arriving at same waypoint
+- **Steps**:
+  1. Schedule two drones to arrive at waypoint C at exactly 0900
+- **Expected**: System detects conflict and suggests time separation
+
+### 2. Single Waypoint Mission
+- **Description**: Hover-in-place mission
+- **Steps**:
+  1. Create mission with only waypoint A
+- **Expected**: System treats as stationary object for collision checks
+
+## Performance Testing
+
+### 1. Scalability
+- **Description**: Test with 50 simultaneous missions
+- **Steps**:
+  1. Generate 50 missions with randomized paths
+- **Expected**: System remains responsive (<2s latency)
