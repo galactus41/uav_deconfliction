@@ -1,0 +1,63 @@
+# UAV Deconfliction System - Technical Documentation
+
+## System Overview
+
+### Purpose
+The UAV Deconfliction System provides automated conflict detection and resolution for multiple drone missions operating in shared airspace. It evaluates both spatial proximity and temporal overlap to ensure safe mission execution.
+
+### Key Components
+1. **Mission Planning Module**
+   - Handles mission creation, editing, and validation
+   - Manages waypoint definitions and flight parameters
+
+2. **Conflict Detection Engine**
+   - Performs 4D (x,y,z + time) collision checks
+   - Implements configurable safety buffers
+
+3. **Environmental Model**
+   - Accounts for wind speed/direction effects
+   - Adjusts flight parameters dynamically
+
+4. **Visualization Interface**
+   - Interactive 3D airspace display
+   - Real-time status monitoring
+
+## Core Algorithms
+
+### Path Generation
+```python
+def generate_path(waypoints, start_time, end_time):
+    """
+    Generates time-stamped flight path with wind adjustments
+    
+    Args:
+        waypoints: List of (x,y,z) coordinates
+        start_time: Mission start in minutes since midnight
+        end_time: Mission end in minutes since midnight
+    
+    Returns:
+        List of (x, y, z, timestamp, segment_info) points
+    """
+
+
+Data Structures
+{
+    "name": "Drone_1",          # String identifier
+    "start_time": "0830",       # HHMM format
+    "end_time": "0915",         # HHMM format 
+    "waypoints": ["A", "B", "C"] # Ordered list
+}
+
+Conflict Report
+
+{
+    "drone_a": "Drone_1",
+    "drone_b": "Drone_2",
+    "time": "08:45",
+    "location": (4.2, 9.1, 5.0),
+    "distance": 1.45,           # meters
+    "solutions": [              # Ordered by priority
+        "Delay Drone_2 launch by 4 minutes",
+        "Adjust Drone_1 altitude +3m"
+    
+}
