@@ -18,7 +18,7 @@ A strategic planning system for coordinating multiple drone missions in shared a
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/uav-deconfliction-system.git
+  [git clone https://github.com/yourusername/uav-deconfliction-system.git](https://github.com/galactus41/uav_deconfliction.git)
 ## Getting Started
 
 ### Prerequisites
